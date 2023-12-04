@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@4.1.1
+      - uses: actions/checkout@v4.1.1
 
       # add nad install timer
       #- uses: action/intall-timer@2.0.1
