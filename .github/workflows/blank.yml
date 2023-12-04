@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       #- uses: actions/checkout@v4.1.1
-      - uses: actions/checkout@vmaster
+      - uses: actions/checkout@master
       # add nad install timer
       #- uses: action/intall-timer@2.0.1
 
