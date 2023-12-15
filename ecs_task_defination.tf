@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "baswanth-bmi-td" {
   network_mode = "awsvpc"
   cpu = 256
   memory = 512
-  execution_role_arn = 
+  execution_role_arn = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
   {
    name = "bas-first"
