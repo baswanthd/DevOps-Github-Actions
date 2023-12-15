@@ -1,4 +1,4 @@
-resource "aws_ecs_task_defination" "baswanth-bmi-service" {
+resource "aws_ecs_task_definition" "baswanth-bmi-service" {
   family = "baswanth-bmi-service"
   container_definations = jsonencode([
   {
