@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "bmi-service-test" {
   name            = "bmi-service-test"
   cluster         =  aws_ecs_cluster.baswanth_ecs_cluster.id
-  task_definition = "aws_ecs_task_definition.baswanth-bmi-td.arn" 
+  task_definition = "aws_ecs_task_definition.bmi-service7.arn" 
   desired_count   = 1
   #iam_role        = aws_iam_role.foo.arn
   #depends_on      = [aws_iam_role_policy.foo]
