@@ -1,4 +1,4 @@
-resource "aws_ecs_service" "bmi-bas {
+resource "aws_ecs_service" "bmi-bas" {
   name            = "bmi-baswanth"
   cluster         =  aws_ecs_cluster.baswanth_ecs_cluster.id
   task_definition = "aws_ecs_task_definition.bmi-service7.arn" 
