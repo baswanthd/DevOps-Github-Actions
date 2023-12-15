@@ -2,11 +2,19 @@ resource "aws_ecs_service" "bmi-service-tf" {
   name            = "bmi-service-tf"
   cluster         = aws_ecs_cluster.baswanthaws-ecs.id
   task_definition = "aws_ecs_task_definition.baswanth-bmi-td.arn" 
-  desired_count   = 3
-  iam_role        = aws_iam_role.foo.arn
-  depends_on      = [aws_iam_role_policy.foo]
+  desired_count   = 1
+  #iam_role        = aws_iam_role.foo.arn
+  #depends_on      = [aws_iam_role_policy.foo]
+  launch_type = "FARGATE"
 
-  ordered_placement_strategy {
+
+network_configuration {
+  subnets = [ "subnet-01480a618ac23bf02", "subnet-09d97b80d657b45c8", "subnet-00582281cf7d0e00c" ]
+  security_groups = [ "sg-051b7d20f5f894279" ]
+  assign_public_ip = true
+}
+
+ /* ordered_placement_strategy {
     type  = "binpack"
     field = "cpu"
   }
@@ -20,5 +28,5 @@ resource "aws_ecs_service" "bmi-service-tf" {
   placement_constraints {
     type       = "memberOf"
     expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
-  }
-}
+  } */
+} 
