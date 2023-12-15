@@ -2,7 +2,9 @@ resource "aws_ecs_task_definition" "baswanth-bmi-td" {
   family = "bmi-service"
   requires_compatibilities = [ "FARGATE" ]
   network_mode = "awsvpc"
-  cpu = 1
+  cpu = 256
+  memory = 512
+  execution_role_arn = 
   container_definitions = jsonencode([
   {
    name = "bas-first"
