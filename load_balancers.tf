@@ -7,11 +7,11 @@ resource "aws_lb" "bas_app_lb" {
 
   enable_deletion_protection = true
 
-  access_logs {
-    bucket  = "bas-bucket-box"
-    prefix  = "bas-lb"
-    enabled = true
-  }
+#   access_logs {
+#     bucket  = "bas-bucket-box"
+#     prefix  = "bas-lb"
+#     enabled = true
+#   }
 
   tags = {
     Environment = "Learning"
