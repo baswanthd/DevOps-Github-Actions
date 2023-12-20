@@ -13,20 +13,20 @@ network_configuration {
   security_groups = [aws_security_group.allow_everything.id]
   assign_public_ip = false
   }
-}
- /* ordered_placement_strategy {
-    type  = "binpack"
-    field = "cpu"
-  }
+
+  # ordered_placement_strategy {
+  #   type  = "binpack"
+  #   field = "cpu"
+  # }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.foo.arn
-    container_name   = "mongo"
-    container_port   = 8080
+    target_group_arn = aws_lb_target_group.bas_app_tg.arn
+    container_name   = "baswanthecr"
+    container_port   = 8000
   }
-
-  placement_constraints {
-    type       = "memberOf"
-    expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
-  } */
+}
+  # placement_constraints {
+  #   type       = "memberOf"
+  #   expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+  # } */
 
