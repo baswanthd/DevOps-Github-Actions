@@ -50,3 +50,21 @@ Run the generated .jar file in the target folder
 ```shell
 java -jar target/bmi-1.0.jar
 ```
+
+
+AWS
+Elastic Container registry
+Elastic container service
+
+Workflow : terraform.tf
+
+ecs (cluster)
+ecs service
+task defination
+vpc
+security groups
+load balancer
+target groups
+listners
+Health checks
+variables
