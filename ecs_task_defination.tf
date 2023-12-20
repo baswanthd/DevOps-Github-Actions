@@ -1,4 +1,4 @@
-resource "aws_ecs_task_definition" "bmi-service8" {
+resource "aws_ecs_task_definition" "bmi-service88" {
   family = "bmi-service8"
   requires_compatibilities = [ "FARGATE" ]
   network_mode = "awsvpc"
