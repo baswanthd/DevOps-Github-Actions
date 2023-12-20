@@ -21,7 +21,7 @@ network_configuration {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.bas_app_tg.arn
-    container_name   = "baswanthecr"
+    container_name   = "first"
     container_port   = 8000
   }
 }
