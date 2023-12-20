@@ -11,7 +11,7 @@ resource "aws_lb" "bas_app_lb" {
 #     bucket  = "bas-bucket-box"
 #     prefix  = "bas-lb"
 #     enabled = true
-#   }
+  }
 
 resource "aws_lb_target_group" "bas_app_tg" {
   name        = "bas-lb-tg"
