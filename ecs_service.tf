@@ -11,7 +11,7 @@ resource "aws_ecs_service" "bmi-bas8" {
 network_configuration {
   subnets = [ "subnet-01480a618ac23bf02", "subnet-09d97b80d657b45c8", "subnet-00582281cf7d0e00c" ]
   security_groups = [aws_security_group.allow_everything.id]
-  assign_public_ip = false
+  assign_public_ip = true
   }
 
   # ordered_placement_strategy {
