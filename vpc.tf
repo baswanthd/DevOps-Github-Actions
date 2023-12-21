@@ -31,3 +31,11 @@ resource "aws_subnet" "private_subnets" {
     Name = format("private_subnet %d", count.index)
   }
 }
+
+resource "aws_internet_gateway" "internet_gateway"  {
+    vpc_id     = aws_vpc.main_vpc.id
+
+tags = {
+    Name = "gateway"
+  }
+}
