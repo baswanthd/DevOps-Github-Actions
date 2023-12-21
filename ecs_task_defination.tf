@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
-  #family = "devops-bmi1-taskdef"
+  family = "bmi-service"
   requires_compatibilities = [ "FARGATE" ]
   network_mode = "awsvpc"
   cpu = 256
@@ -7,7 +7,7 @@ resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
   execution_role_arn =  "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
     {
-      name      = "first"
+      name      = "second"
       image     = "124937358799.dkr.ecr.eu-west-2.amazonaws.com/devops_repro"
       cpu       = 0
       memory    = 512
