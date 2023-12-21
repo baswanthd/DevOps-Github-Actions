@@ -7,7 +7,7 @@ resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
   execution_role_arn =  "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
     {
-      name      = "second"
+      name      = "first"
       image     = "124937358799.dkr.ecr.eu-west-2.amazonaws.com/devops_repro"
       cpu       = 0
       memory    = 512
