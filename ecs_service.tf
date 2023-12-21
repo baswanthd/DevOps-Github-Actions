@@ -1,7 +1,7 @@
 resource "aws_ecs_service" "bmi-bas8" {
   name            = "bmi-bas8"
   cluster         =  aws_ecs_cluster.baswanth_ecs_cluster.id
-  task_definition =  aws_ecs_task_definition.bmi-service88.arn
+  task_definition =  aws_ecs_task_definition.bmi-bas-service-tf.arn
   desired_count   = 1
   #iam_role        = aws_iam_role.foo.arn
   #depends_on      = [aws_iam_role_policy.foo]

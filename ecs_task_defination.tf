@@ -1,4 +1,4 @@
-resource "aws_ecs_task_definition" "bmi-service88" {
+resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
   family = "bmi-service"
   requires_compatibilities = [ "FARGATE" ]
   network_mode = "awsvpc"
