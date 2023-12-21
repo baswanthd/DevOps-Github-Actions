@@ -35,7 +35,20 @@ resource "aws_subnet" "private_subnets" {
 resource "aws_internet_gateway" "internet_gateway"  {
     vpc_id     = aws_vpc.main_vpc.id
 
+    tags = {
+        Name = "gateway"
+    }
+}
+
+resource "aws_route_table" "route_internet_gateway"  {
+    vpc_id     = aws_vpc.main_vpc.id
+    
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.internet_gateway.id
+    }
+
 tags = {
-    Name = "gateway"
+    Name = "route_internet_gateway"
   }
 }
