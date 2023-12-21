@@ -48,7 +48,13 @@ resource "aws_route_table" "route_internet_gateway"  {
         gateway_id = aws_internet_gateway.internet_gateway.id
     }
 
-tags = {
-    Name = "route_internet_gateway"
-  }
+    tags = {
+        Name = "route_internet_gateway"
+    }
+}
+
+resource "aws_route_table_association" "a" {
+    count = length(var.public_subnets_cidr)
+    subnet_id      = element(aws_subnet.public_subnets.[*].id, count.index) 
+    route_table_id = aws_route_table.route_internet_gateway.id
 }
