@@ -53,8 +53,8 @@ resource "aws_route_table" "route_internet_gateway"  {
     }
 }
 
-resource "aws_route_table_association" "a" {
+resource "aws_route_table_association" "route_table_association" {
     count = length(var.public_subnets_cidr)
-    subnet_id      = element(aws_subnet.public_subnets.[*].id, count.index) 
+    subnet_id      = element(aws_subnet.public_subnets[*].id, count.index) 
     route_table_id = aws_route_table.route_internet_gateway.id
 }
