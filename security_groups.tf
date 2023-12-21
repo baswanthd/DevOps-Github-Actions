@@ -1,7 +1,7 @@
 resource "aws_security_group" "allow_everything" {
   name        = "allow_everything"
   description = "Allow everything"
-  vpc_id      = "vpc-02fa7bb78ea63c332"
+  vpc_id      = aws_vpc.main_vpc.id
 
   ingress {
     description      = "Allow-everything from VPC"
