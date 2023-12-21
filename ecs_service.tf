@@ -9,7 +9,7 @@ resource "aws_ecs_service" "bmi-bas8" {
 
 
 network_configuration {
-  subnets = [aws_subnet.private_subnets[*].id]
+  subnets = aws_subnet.private_subnets[*].id
   security_groups = [aws_security_group.allow_everything.id]
   assign_public_ip = false
   }
