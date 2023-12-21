@@ -20,3 +20,14 @@ resource "aws_subnet" "public_subnets" {
   }
 }
 
+resource "aws_subnet" "private_subnets" {
+  vpc_id     = aws_vpc.main_vpc.id
+  
+  count = length(var.private_subnets_cidr)
+  cidr_block = element(var.private_subnets_cidr, count.index)
+  availability_zone = element(var.availability_zones, count.index)
+
+  tags = {
+    Name = format("private_subnet %d", count.index)
+  }
+}
