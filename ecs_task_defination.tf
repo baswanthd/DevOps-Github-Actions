@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
-  family = "devops-bmi1-taskdef"
+  #family = "devops-bmi1-taskdef"
   requires_compatibilities = [ "FARGATE" ]
   network_mode = "awsvpc"
   cpu = 256
