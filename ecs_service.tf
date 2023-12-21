@@ -11,7 +11,7 @@ resource "aws_ecs_service" "bmi-bas8" {
 network_configuration {
   subnets = aws_subnet.private_subnets[*].id
   security_groups = [aws_security_group.allow_everything.id]
-  assign_public_ip = true
+  assign_public_ip = false
   }
 
   # ordered_placement_strategy {
@@ -21,6 +21,7 @@ network_configuration {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.bas_app_tg.arn
+    target_id = aws_instance.bas_app_tg.id
     container_name   = "first"
     container_port   = 8000
   }
