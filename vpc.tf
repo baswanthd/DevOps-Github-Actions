@@ -112,6 +112,9 @@ resource "aws_vpc_endpoint" "ecr-endpoint" {
   security_group_ids = [
     aws_security_group.allow_everything.id,
   ]
-
+  
+    tags = {
+    Name = "ecr-endpoint-tf"
+  }
   #private_dns_enabled = true
 }
