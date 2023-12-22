@@ -63,7 +63,7 @@ resource "aws_route_table" "private"  {
 }
 
 resource "aws_route" "nat" {
-  count = lenght(var.private_subnets_cidr)
+  count = length(var.private_subnets_cidr)
   route_table_id            = element(aws_route_table.private.*.id, count.index) 
   destination_cidr_block    = "0.0.0.0/0"
   #vpc_peering_connection_id = "pcx-45ff3dc1"
