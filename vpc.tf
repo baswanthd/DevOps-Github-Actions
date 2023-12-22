@@ -104,3 +104,14 @@ resource "aws_route_table_association" "route_table_association" {
     route_table_id = aws_route_table.route_internet_gateway.id
 }
 
+resource "aws_vpc_endpoint" "ecr-endpoint" {
+  vpc_id            = aws_vpc.main_vpc.id
+  service_name      = "com.amazonaws.eu-west-2.ecr.api"
+  vpc_endpoint_type = "Interface"
+
+  security_group_ids = [
+    aws_security_group.allow_everything.id,
+  ]
+
+  private_dns_enabled = true
+}
