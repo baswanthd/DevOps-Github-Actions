@@ -53,9 +53,27 @@ resource "aws_route_table" "route_internet_gateway"  {
     }
 }
 
-resource "aws_eip" "nat" {
+resource "aws_route_table" "private"  {
+    count = length(var.private_subnets_cidr)
+    vpc_id     = aws_vpc.main_vpc.id
+    
+    tags = {
+        Name = "private"
+    }
+}
+
+resource "aws_route" "NAT" {
+  count = lenght(var.private_subnets_cidr)
+  route_table_id            = element(aws_route_table.private.*.id, count.index) 
+  destination_cidr_block    = "0.0.0.0/0"
+  #vpc_peering_connection_id = "pcx-45ff3dc1"
+  #depends_on                = [aws_route_table.testing]
+  nat_gateway_id = element(aws_nat_gateway.bas_nat_gateway.*.id, count.index)
+}
+
+resource "aws_eip" "NAT" {
   count = length(var.private_subnets_cidr)
-  vpc = true
+  domain = vpc
   
 }
 
@@ -72,6 +90,13 @@ resource "aws_nat_gateway" "bas_nat_gateway" {
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.internet_gateway]
 }
+
+resource "aws_route_table_association" "private" {
+    count = length(var.private_subnets_cidr)
+    subnet_id      = element(aws_subnet.private_subnets[*].id, count.index) 
+    route_table_id = element(aws_route_table.private.*.id, count.index)
+}
+
 
 resource "aws_route_table_association" "route_table_association" {
     count = length(var.public_subnets_cidr)
