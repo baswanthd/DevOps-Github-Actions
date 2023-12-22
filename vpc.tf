@@ -62,7 +62,7 @@ resource "aws_route_table" "private"  {
     }
 }
 
-resource "aws_route" "NAT" {
+resource "aws_route" "nat" {
   count = lenght(var.private_subnets_cidr)
   route_table_id            = element(aws_route_table.private.*.id, count.index) 
   destination_cidr_block    = "0.0.0.0/0"
@@ -71,9 +71,9 @@ resource "aws_route" "NAT" {
   nat_gateway_id = element(aws_nat_gateway.bas_nat_gateway.*.id, count.index)
 }
 
-resource "aws_eip" "NAT" {
+resource "aws_eip" "nat" {
   count = length(var.private_subnets_cidr)
-  domain = vpc
+  domain = "vpc"
   
 }
 
