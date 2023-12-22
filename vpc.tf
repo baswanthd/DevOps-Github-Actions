@@ -113,5 +113,5 @@ resource "aws_vpc_endpoint" "ecr-endpoint" {
     aws_security_group.allow_everything.id,
   ]
 
-  private_dns_enabled = true
+  #private_dns_enabled = true
 }
