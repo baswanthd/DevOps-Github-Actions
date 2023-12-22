@@ -9,7 +9,7 @@ resource "aws_ecs_task_definition" "bmi-bas-service-tf" {
     {
       name      = "first"
       image     = "124937358799.dkr.ecr.eu-west-2.amazonaws.com/baswanthecr"
-      cpu       = 0
+      cpu       = 256
       memory    = 512
       essential = true
       portMappings = [
