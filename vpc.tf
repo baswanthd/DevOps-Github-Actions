@@ -53,8 +53,29 @@ resource "aws_route_table" "route_internet_gateway"  {
     }
 }
 
+resource "aws_eip" "nat" {
+  count = length(var.private_subnets_cidr)
+  vpc = true
+  
+}
+
+resource "aws_nat_gateway" "bas_nat_gateway" {
+  count = length(var.private_subnets_cidr)
+  allocation_id = element(aws_eip.nat.*.id, count.index)
+  subnet_id     = element(aws_subnet.private_subnets.*.id, count.index)
+
+  tags = {
+    Name = "gw NAT"
+  }
+
+  # To ensure proper ordering, it is recommended to add an explicit dependency
+  # on the Internet Gateway for the VPC.
+  depends_on = [aws_internet_gateway.internet_gateway]
+}
+
 resource "aws_route_table_association" "route_table_association" {
     count = length(var.public_subnets_cidr)
     subnet_id      = element(aws_subnet.public_subnets[*].id, count.index) 
     route_table_id = aws_route_table.route_internet_gateway.id
 }
+
