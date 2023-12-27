@@ -23,7 +23,7 @@ data "aws_iam_policy_document" "log_data" {
     ]
 
     resources = [
-      data.aws_s3_bucket.log_bucket.arn,
+      aws_s3_bucket.log_bucket.arn,
     ]
   }
 }
