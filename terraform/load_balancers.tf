@@ -6,10 +6,10 @@ resource "aws_lb" "bas_app_lb" {
   subnets            = aws_subnet.public_subnets[*].id
   enable_deletion_protection = false
 
-#   access_logs {
-#     bucket  = "bas-bucket-box"
-#     prefix  = "bas-lb"
-#     enabled = true
+   access_logs {
+     bucket  = aws_s3_bucket.log_bucket.id
+     prefix  = "log"
+     enabled = true
   }
 
 resource "aws_lb_target_group" "bas_app_tg" {
