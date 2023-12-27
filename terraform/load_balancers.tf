@@ -11,6 +11,7 @@ resource "aws_lb" "bas_app_lb" {
      prefix  = "log"
      enabled = true
   }
+}
 
 resource "aws_lb_target_group" "bas_app_tg" {
   name        = "bas-lb-tg"
