@@ -24,7 +24,7 @@ data "aws_iam_policy_document" "log_data" {
 
     resources = [
       aws_s3_bucket.log_bucket.arn,
-      "${aws_s3_bucket.log_bucket.arn}/${data.aws_caller_identity.log_account_current.account_id}/*",
+      "${aws_s3_bucket.log_bucket.arn}/log/AWSLogs/${data.aws_caller_identity.log_account_current.account_id}/*",
     ]
   }
 }
