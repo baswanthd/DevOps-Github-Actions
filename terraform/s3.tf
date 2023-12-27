@@ -28,3 +28,13 @@ data "aws_iam_policy_document" "log_data" {
     ]
   }
 }
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "log_encryption" {
+  bucket = aws_s3_bucket.log_bucket.id
+  rule {
+    apply_server_side_encryption_by_default {
+      # kms_master_key_id = aws_kms_key.mykey.arn # there is a default one
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
