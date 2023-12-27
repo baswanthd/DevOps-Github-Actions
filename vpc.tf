@@ -80,7 +80,7 @@ resource "aws_eip" "nat" {
 resource "aws_nat_gateway" "bas_nat_gateway" {
   count = length(var.private_subnets_cidr)
   allocation_id = element(aws_eip.nat.*.id, count.index)
-  subnet_id     = element(aws_subnet.private_subnets.*.id, count.index)
+  subnet_id     = element(aws_subnet.public_subnets.*.id, count.index)
 
   tags = {
     Name = "gw NAT"
@@ -104,17 +104,3 @@ resource "aws_route_table_association" "route_table_association" {
     route_table_id = element(aws_route_table.route_internet_gateway.*.id, count.index)
 }
 
-resource "aws_vpc_endpoint" "ecr-endpoint" {
-  vpc_id            = aws_vpc.main_vpc.id
-  service_name      = "com.amazonaws.eu-west-2.ecr.api"
-  vpc_endpoint_type = "Interface"
-
-  security_group_ids = [
-    aws_security_group.allow_everything.id,
-  ]
-  
-    tags = {
-    Name = "ecr-endpoint-tf"
-  }
-  #private_dns_enabled = true
-}
