@@ -3,6 +3,11 @@ resource "aws_s3_bucket" "log_bucket" {
 
 }
 
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.log_bucket.id
+  policy = data.aws_iam_policy_document.log_data.json
+}
+
 data "aws_iam_policy_document" "log_data" {
   statement {
     sid = "1"
