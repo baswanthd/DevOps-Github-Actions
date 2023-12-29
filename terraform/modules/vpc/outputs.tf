@@ -4,9 +4,11 @@ output "public_subnet_ids" {
 }
 
 output "private_subnet_ids" {
-    value = "${aws_subnet.private_subnets.*.id}"
+    #value = "${aws_subnet.private_subnets.*.id}"
+    value = aws_subnet.private_subnets.*.id
 }
 
 output "vpc_id" {
-    value = "${aws_vpc.main_vpc.id}"
+    #value = "${aws_vpc.main_vpc.id}"
+    value = aws_vpc.main_vpc.id
 }
