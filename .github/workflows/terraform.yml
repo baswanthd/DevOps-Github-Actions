@@ -53,6 +53,6 @@ jobs:
         run: terraform plan -no-color -out=tf.out -destroy
         #continue-on-error: true
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply tf.out
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: terraform apply tf.out

@@ -1,6 +1,6 @@
-variable "subnets" {
-description = "subnets for FARGATE"
-}
+# variable "subnets" {
+# description = "subnets for FARGATE"
+# }
 
 variable "region" {
     default = "eu-west-2"
