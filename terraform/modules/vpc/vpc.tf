@@ -98,9 +98,9 @@ resource "aws_route_table_association" "private" {
 }
 
 
-# resource "aws_route_table_association" "route_table_association" {
-#     count = length(var.public_subnets_cidr)
-#     subnet_id      = element(aws_subnet.public_subnets[*].id, count.index) 
-#     route_table_id = element(aws_route_table.route_internet_gateway.*.id, count.index)
-# }
+resource "aws_route_table_association" "route_table_association" {
+    count = length(var.public_subnets_cidr)
+    subnet_id      = element(aws_subnet.public_subnets[*].id, count.index) 
+    route_table_id = element(aws_route_table.route_internet_gateway.*.id, count.index)
+}
 
