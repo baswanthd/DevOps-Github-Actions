@@ -3,7 +3,7 @@ resource "aws_lb" "bas_app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.allow_everything.id]
-  subnets            = aws_subnet.public_subnets[*].id
+  subnets            = module.common_vpc.aws_subnet.public_subnets[*].id
   enable_deletion_protection = false
 
    access_logs {
@@ -18,16 +18,8 @@ resource "aws_lb_target_group" "bas_app_tg" {
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
-  vpc_id      = aws_vpc.main_vpc.id
+  vpc_id      = module.common_vpc.aws_vpc.main_vpc.id
 }
-
-# resource "aws_vpc" "main" {
-#   cidr_block = "10.0.0.0/16"
-# }
-#   tags = {
-#     Environment = "Learning"
-#   }
-#}
 
 resource "aws_lb_listener" "app_front_end" {
   load_balancer_arn = aws_lb.bas_app_lb.arn
