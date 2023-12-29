@@ -3,7 +3,7 @@ resource "aws_lb" "bas_app_lb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.allow_everything.id]
-  subnets            = module.common_vpc.aws_subnet.public_subnets[*].id
+  subnets            = module.common_vpc.public_subnet_ids
   enable_deletion_protection = false
 
    access_logs {
@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "bas_app_tg" {
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
-  vpc_id      = module.common_vpc.aws_vpc.main_vpc.id
+  vpc_id      = module.common_vpc.vpc_id
 }
 
 resource "aws_lb_listener" "app_front_end" {
