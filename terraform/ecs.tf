@@ -3,6 +3,6 @@ resource "aws_ecs_cluster" "baswanth_ecs_cluster" {
 }
 
 resource "aws_ecs_cluster" "contact-form-tf" {
-  name = "contact-form-tf"
+  name = "contact-form"
 
 }

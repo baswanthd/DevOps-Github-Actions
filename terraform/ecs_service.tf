@@ -30,8 +30,8 @@ resource "aws_ecs_service" "bmi-bas8" {
 #   expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
 # } */
 
-resource "aws_ecs_service" "contact-form-tf" {
-  name            = "contact-form-tf"
+resource "aws_ecs_service" "contact-form" {
+  name            = "contact-form"
   cluster         = aws_ecs_cluster.contact-form-tf.id
   task_definition = aws_ecs_task_definition.contact-form-tf.arn
   desired_count   = 1
