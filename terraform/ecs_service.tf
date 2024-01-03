@@ -1,17 +1,17 @@
 resource "aws_ecs_service" "bmi-bas8" {
   name            = "bmi-bas8"
-  cluster         =  aws_ecs_cluster.baswanth_ecs_cluster.id
-  task_definition =  aws_ecs_task_definition.bmi-bas-service-tf.arn
+  cluster         = aws_ecs_cluster.baswanth_ecs_cluster.id
+  task_definition = aws_ecs_task_definition.bmi-bas-service-tf.arn
   desired_count   = 1
   #iam_role        = aws_iam_role.foo.arn
   #depends_on      = [aws_iam_role_policy.foo]
   launch_type = "FARGATE"
 
 
-network_configuration {
-  subnets = module.common_vpc.private_subnet_ids
-  security_groups = [aws_security_group.allow_everything.id]
-  assign_public_ip = false
+  network_configuration {
+    subnets          = module.common_vpc.private_subnet_ids
+    security_groups  = [aws_security_group.fargate-sg.id]
+    assign_public_ip = false
   }
 
   # ordered_placement_strategy {
@@ -25,8 +25,8 @@ network_configuration {
     container_port   = 8000
   }
 }
-  # placement_constraints {
-  #   type       = "memberOf"
-  #   expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
-  # } */
+# placement_constraints {
+#   type       = "memberOf"
+#   expression = "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"
+# } */
 

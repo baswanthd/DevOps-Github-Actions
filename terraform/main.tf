@@ -24,7 +24,7 @@ provider "aws" {
 module "common_vpc" {
   source = "./modules/vpc/"
 
-  public_subnets_cidr = var.public_subnets_cidr
+  public_subnets_cidr  = var.public_subnets_cidr
   private_subnets_cidr = var.private_subnets_cidr
-  vpc_cidr = var.vpc_cidr
+  vpc_cidr             = var.vpc_cidr
 }

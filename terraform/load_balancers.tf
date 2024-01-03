@@ -1,9 +1,9 @@
 resource "aws_lb" "bas_app_lb" {
-  name               = "bas-lb-tf"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.allow_everything.id]
-  subnets            = module.common_vpc.public_subnet_ids
+  name                       = "bas-lb-tf"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [aws_security_group.allow_everything.id]
+  subnets                    = module.common_vpc.public_subnet_ids
   enable_deletion_protection = false
 
   #  access_logs {
