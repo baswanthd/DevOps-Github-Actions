@@ -30,7 +30,7 @@ resource "aws_ecs_task_definition" "contact-form-tf" {
   execution_role_arn       = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
     {
-      name      = "contact-form-tf"
+      name      = "contact-form"
       image     = "124937358799.dkr.ecr.eu-west-2.amazonaws.com/baswanthecr:latest"
       cpu       = 10
       memory    = 512
