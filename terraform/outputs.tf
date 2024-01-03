@@ -12,5 +12,8 @@ output "fargate_ip" {
 
 data "dns_a_record_set" "lb_ips" {
   host = aws_lb.bas_app_lb.dns_name
+}
 
+output "lb_public_ip" {
+  value = data.dns_a_record_set.lb_ips.addrs
 }
