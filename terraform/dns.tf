@@ -7,5 +7,5 @@ resource "aws_route53_record" "test" {
   name    = "test.baswanth-tech.de"
   type    = "A"
   ttl     = 10
-  records = [aws_eip.bas_app_lb.public_ip]
+  records = data.dns_a_record_set.lb_ips.addrs
 }
