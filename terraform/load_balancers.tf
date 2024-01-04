@@ -6,11 +6,11 @@ resource "aws_lb" "bas_app_lb" {
   subnets                    = module.common_vpc.public_subnet_ids
   enable_deletion_protection = false
 
-  #  access_logs {
-  #    bucket  = aws_s3_bucket.log_bucket.id
-  #    prefix  = "log"
-  #    enabled = true
-  # }
+    access_logs {
+      bucket  = aws_s3_bucket.log_bucket.id
+      prefix  = "log"
+      enabled = true
+    }
 }
 
 resource "aws_lb_target_group" "bas_app_tg" {
