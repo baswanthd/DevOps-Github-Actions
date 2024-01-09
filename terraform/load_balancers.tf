@@ -1,5 +1,5 @@
-resource "aws_lb" "central_app_lb" {
-  name                       = "central_lb"
+resource "aws_lb" "central-app-lb" {
+  name                       = "central-lb"
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.allow_everything.id]
@@ -13,16 +13,16 @@ resource "aws_lb" "central_app_lb" {
     # }
 }
 
-resource "aws_lb_target_group" "cental_app_tg" {
-  name        = "central_lb_tg"
+resource "aws_lb_target_group" "cental-app-tg" {
+  name        = "central-lb-tg"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = module.common_vpc.vpc_id
 }
 
-resource "aws_lb_listener" "central_app_listner" {
-  load_balancer_arn = aws_lb.central_app_lb.arn
+resource "aws_lb_listener" "central-app-listner" {
+  load_balancer_arn = aws_lb.central-app-lb.arn
   port              = "80"
   protocol          = "HTTP"
   #ssl_policy        = "ELBSecurityPolicy-2016-08"
@@ -30,7 +30,7 @@ resource "aws_lb_listener" "central_app_listner" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.cental_app_tg.arn
+    target_group_arn = aws_lb_target_group.central-app-tg.arn
   }
 }
 
