@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "bmi-service" {
   container_definitions = jsonencode([
     {
       name      = "bmi"
-      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/centralecr"
+      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/centralecr:f531fd88c12b8c3e5b15a4429ec157bceccc7714"
       cpu       = 256
       memory    = 512
       essential = true
