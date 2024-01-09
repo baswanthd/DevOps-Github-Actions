@@ -1,4 +1,4 @@
-resource "aws_ecs_cluster" "central-ecs-cluster" {
+resource "aws_ecs_cluster" "central-cluster" {
   name = "central-cluster"
 }
 

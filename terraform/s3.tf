@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "log_bucket" {
+resource "aws_s3_bucket" "log-bucket-central" {
   bucket = "log-bucket-ac-dev11"
 
 }

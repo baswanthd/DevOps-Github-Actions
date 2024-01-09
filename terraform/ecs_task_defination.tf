@@ -1,4 +1,4 @@
-resource "aws_ecs_task_definition" "central-bmi-service" {
+resource "aws_ecs_task_definition" "bmi-service" {
   family                   = "bmi-service"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
@@ -8,7 +8,7 @@ resource "aws_ecs_task_definition" "central-bmi-service" {
   container_definitions = jsonencode([
     {
       name      = "first"
-      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/central_ecs_cluster"
+      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/central-cluster"
       cpu       = 256
       memory    = 512
       essential = true
