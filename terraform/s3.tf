@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "log-bucket-central" {
-  bucket = "log-bucket-ac-dev11"
+  bucket = "log-bucket-ac-dev"
 
 }
 
