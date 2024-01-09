@@ -14,7 +14,7 @@ resource "aws_lb" "central-app-lb" {
 }
 
 resource "aws_lb_target_group" "cental-app-tg" {
-  name        = "central-lb-tg"
+  name        = "central-app-tg"
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
