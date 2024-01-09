@@ -11,14 +11,14 @@ terraform {
   backend "s3" {
     bucket = "bas-bucket-box"
     key    = "ecs_ext"
-    region = "eu-west-2"
+    region = "eu-central-1"
   }
 
 }
 
 provider "aws" {
   #version
-  region = "eu-west-2"
+  region = "eu-central-1"
 }
 
 module "common_vpc" {
