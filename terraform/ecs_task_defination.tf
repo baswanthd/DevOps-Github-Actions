@@ -7,8 +7,8 @@ resource "aws_ecs_task_definition" "bmi-service" {
   execution_role_arn       = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
     {
-      name      = "first"
-      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/central-cluster"
+      name      = "bmi"
+      image     = "124937358799.dkr.ecr.eu-central-1.amazonaws.com/centralecr"
       cpu       = 256
       memory    = 512
       essential = true
