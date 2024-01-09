@@ -28,3 +28,11 @@ module "common_vpc" {
   private_subnets_cidr = var.private_subnets_cidr
   vpc_cidr             = var.vpc_cidr
 }
+
+module "ecs" {
+  source = "./modules/ecs/"
+
+  cluster  = var.public_subnets_cidr
+  private_subnets_cidr = var.private_subnets_cidr
+  vpc_cidr             = var.vpc_cidr
+}
