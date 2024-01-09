@@ -1,15 +1,15 @@
-resource "aws_vpc" "main_vpc" {
+resource "aws_vpc" "central_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
   enable_dns_support   = true
 
   tags = {
-    Name = "main_vpc"
+    Name = "central_vpc"
   }
 }
 
 resource "aws_subnet" "public_subnets" {
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.central_vpc.id
 
   count             = length(var.public_subnets_cidr)
   cidr_block        = element(var.public_subnets_cidr, count.index)
@@ -21,7 +21,7 @@ resource "aws_subnet" "public_subnets" {
 }
 
 resource "aws_subnet" "private_subnets" {
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.central_vpc.id
 
   count             = length(var.private_subnets_cidr)
   cidr_block        = element(var.private_subnets_cidr, count.index)
@@ -33,7 +33,7 @@ resource "aws_subnet" "private_subnets" {
 }
 
 resource "aws_internet_gateway" "internet_gateway" {
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.central_vpc.id
 
   tags = {
     Name = "gateway"
@@ -41,7 +41,7 @@ resource "aws_internet_gateway" "internet_gateway" {
 }
 
 resource "aws_route_table" "route_internet_gateway" {
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.central_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -55,7 +55,7 @@ resource "aws_route_table" "route_internet_gateway" {
 
 resource "aws_route_table" "private" {
   count  = length(var.private_subnets_cidr)
-  vpc_id = aws_vpc.main_vpc.id
+  vpc_id = aws_vpc.central_vpc.id
 
   tags = {
     Name = "private"

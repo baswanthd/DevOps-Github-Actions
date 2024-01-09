@@ -19,5 +19,5 @@ variable "private_subnets_cidr" {
 }
 
 variable "availability_zones" {
-  default = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
+  default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }

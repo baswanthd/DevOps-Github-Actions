@@ -10,7 +10,7 @@ terraform {
 
   backend "s3" {
     bucket = "github-action-buc"
-    key    = "ecs_ext"
+    key    = "ecs_central"
     region = "eu-central-1"
   }
 
