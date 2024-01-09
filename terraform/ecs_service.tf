@@ -1,6 +1,6 @@
 resource "aws_ecs_service" "bmi-service" {
   name            = "bmi-service"
-  cluster         = aws_ecs_cluster.central_ecs_cluster.id
+  cluster         = aws_ecs_cluster.central-ecs-cluster.id
   task_definition = aws_ecs_task_definition.central-bmi-service.arn
   desired_count   = 1
   #iam_role        = aws_iam_role.foo.arn

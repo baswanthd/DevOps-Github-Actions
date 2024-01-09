@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "ecs-container",
-            "image": "124937358799.dkr.ecr.eu-west-2.amazonaws.com/baswanthecr:latest",
+            "image": "124937358799.dkr.ecr.eu-central-1.amazonaws.com/centralecr:latest",
             "cpu": 0,
             "portMappings": [],
             "essential": true,
@@ -16,15 +16,15 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/devops-taskdef",
-                    "awslogs-region": "eu-west-2",
+                    "awslogs-group": "/ecs/central-bmi-service",
+                    "awslogs-region": "eu-central-1",
                     "awslogs-stream-prefix": "ecs"
                 },
                 "secretOptions": []
             }
         }
     ],
-    "family": "devops-taskdef",
+    "family": "bmi-service",
     "executionRoleArn": "arn:aws:iam::124937358799:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,

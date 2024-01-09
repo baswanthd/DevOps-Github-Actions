@@ -1,9 +1,9 @@
 output "loadbalancer_dns-name" {
-  value = aws_lb.central_app_lb.dns_name
+  value = aws_lb.central-app-lb.dns_name
 }
 
 output "lb_ip_type" {
-  value = aws_lb.central_app_lb.ip_address_type
+  value = aws_lb.central-app-lb.ip_address_type
 }
 
 output "fargate_ip" {
@@ -11,7 +11,7 @@ output "fargate_ip" {
 }
 
 data "dns_a_record_set" "lb_ips" {
-  host = aws_lb.central_app_lb.dns_name
+  host = aws_lb.central-app-lb.dns_name
 }
 
 output "lb_public_ip" {

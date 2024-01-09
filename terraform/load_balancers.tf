@@ -1,5 +1,5 @@
 resource "aws_lb" "central-app-lb" {
-  name                       = "central-lb"
+  name                       = "central-app-lb"
   internal                   = false
   load_balancer_type         = "application"
   security_groups            = [aws_security_group.allow_everything.id]
@@ -30,7 +30,7 @@ resource "aws_lb_listener" "central-app-listner" {
 
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.central-app-tg.arn
+    target_group_arn = aws_lb_target_group.central-lb-tg.arn
   }
 }
 
