@@ -7,9 +7,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
 
-    branches: [ "version_ike_003" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "version_ike_003" ]
+    branches: [ "main" ]
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -36,7 +36,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
+          aws-region: eu-central-1
           
       - name: Terraform fmt
         id: fmt
@@ -53,9 +53,9 @@ jobs:
       
       - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color -out=tf.out #-destroy
+        run: terraform plan -no-color -out=tf.out -destroy
         #continue-on-error: true
 
-      - name: Terraform Apply
-        id: apply
-        run: terraform apply tf.out
+      # - name: Terraform Apply
+      #   id: apply
+      #   run: terraform apply tf.out
