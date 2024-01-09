@@ -6,9 +6,11 @@ name: terraform
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "version_0.2" ]
+
+    branches: [ "version_ike_003" ]
   pull_request:
-    branches: [ "version_0.2" ]
+    branches: [ "version_ike_003" ]
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -16,21 +18,44 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+
+  manage_infra:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: ./terraform
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      - name: Configure AWS credentials for GH Actions
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+          
+      - name: Terraform fmt
+        id: fmt
+        run: TF_LOG=debug terraform fmt #-check
+        #continue-on-error: true
+      
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+      
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -out=tf.out #-destroy
+        #continue-on-error: true
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply tf.out

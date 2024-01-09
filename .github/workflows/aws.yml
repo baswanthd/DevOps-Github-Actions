@@ -24,16 +24,16 @@
 #    See the documentation for each action used below for the recommended IAM policies for this IAM user,
 #    and best practices on handling the access key credentials.
 
-name: Deploy to Amazon ECS
+name: Deploy to Amazon ECS n
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "version_0.1" ]
 
 env:
   AWS_REGION: eu-west-2                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: baswanthecr #124937358799.dkr.ecr.eu-west-2.amazonaws.com/baswanthecr         # set this to your Amazon ECR repository name
-  ECS_SERVICE: bas-ecs-github        # set this to your Amazon ECS service name
+  ECS_SERVICE: bas-ecs-github-actions        # set this to your Amazon ECS service name
   ECS_CLUSTER: baswanthaws-ecs                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: ecs-container.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
