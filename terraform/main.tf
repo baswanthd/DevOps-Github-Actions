@@ -9,7 +9,7 @@ terraform {
   #required_version = ">=1.1.1"
 
   backend "s3" {
-    bucket = "bas-bucket-box"
+    bucket = "github-action-buc"
     key    = "ecs_ext"
     region = "eu-central-1"
   }
