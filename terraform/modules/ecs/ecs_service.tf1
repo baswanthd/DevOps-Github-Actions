@@ -10,7 +10,7 @@ resource "aws_ecs_service" "bmi-service" {
 
   network_configuration {
     subnets          = var.subnets
-    security_groups  = [aws_security_group.fargate-sg.id]
+    security_groups  =  [var.fargate_sg]#[aws_security_group.fargate-sg.id]
     assign_public_ip = false
   }
 

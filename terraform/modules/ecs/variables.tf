@@ -2,15 +2,11 @@
 #   default = aws_ecs_cluster.central-cluster.id
 # }
 
-variable "execution_role_arn" {
-  
-}
+variable "execution_role_arn" {}
 
-variable "subnets" {
-  
-}
+variable "subnets" {}
 
-
+variable "fargate_sg" {}
 
 # variable "task_definition_arn" {
 #   default = aws_ecs_task_definition.bmi-service.arn
