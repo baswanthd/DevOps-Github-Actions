@@ -8,6 +8,10 @@ variable "subnets" {}
 
 variable "fargate_sg" {}
 
+variable "lb_target_group" {}
+
+variable "lb_listner" {}
+
 # variable "task_definition_arn" {
 #   default = aws_ecs_task_definition.bmi-service.arn
 # }

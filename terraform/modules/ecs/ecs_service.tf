@@ -20,7 +20,7 @@ resource "aws_ecs_service" "bmi-service" {
   # }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.central-app-tg.arn
+    target_group_arn = var.lb_target_group
     container_name   = "bmi"
     container_port   = 8000
   }
