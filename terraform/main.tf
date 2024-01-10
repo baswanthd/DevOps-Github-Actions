@@ -27,11 +27,11 @@ module "common_vpc" {
   public_subnets_cidr  = var.public_subnets_cidr
   private_subnets_cidr = var.private_subnets_cidr
   vpc_cidr             = var.vpc_cidr
-}
 
-module "ecs" {
-  source = "./modules/ecs/"
-  subnets          = module.common_vpc.private_subnet_ids
-  execution_role_arn = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+
+#module "ecs" {
+  # source = "./modules/ecs/"
+  # subnets          = module.common_vpc.private_subnet_ids
+  # execution_role_arn = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   
 }
