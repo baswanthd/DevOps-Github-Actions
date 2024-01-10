@@ -22,3 +22,8 @@ output "vpc_id" {
   #value = "${aws_vpc.central_vpc.id}"
   value = module.common_vpc.vpc_id
 }
+
+output "cluster_id" {
+  #value = "${aws_vpc.central_vpc.id}"
+  value = module.ecs.cluster_id
+}
