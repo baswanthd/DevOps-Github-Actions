@@ -32,7 +32,7 @@ resource "aws_ecs_service" "bmi-service" {
 
 resource "aws_ecs_service" "contact-form" {
   name            = "contact-form"
-  cluster         = aws_ecs_cluster.contact-form-tf.id
+  cluster         = aws_ecs_cluster.central-cluster.id
   task_definition = aws_ecs_task_definition.contact-form-tf.arn
   desired_count   = 1
 #   iam_role        = aws_iam_role.foo.arn
