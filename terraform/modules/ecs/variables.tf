@@ -6,6 +6,12 @@ variable "execution_role_arn" {
   
 }
 
+variable "subnets" {
+  
+}
+
+
+
 # variable "task_definition_arn" {
 #   default = aws_ecs_task_definition.bmi-service.arn
 # }
