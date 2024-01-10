@@ -3,7 +3,7 @@
 # }
 
 variable "execution_role_arn" {
-  default = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+  
 }
 
 # variable "task_definition_arn" {
