@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "bmi-service" {
   network_mode             = "awsvpc"
   cpu                      = 256
   memory                   = 512
-  execution_role_arn       = module.ecs.var.execution_role_arn"arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+  execution_role_arn       = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
   container_definitions = jsonencode([
     {
       name      = "bmi"
