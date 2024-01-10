@@ -9,7 +9,7 @@ resource "aws_ecs_service" "bmi-service" {
 
 
   network_configuration {
-    subnets          = module.common_vpc.private_subnet_ids
+    subnets          = var.subnets
     security_groups  = [aws_security_group.fargate-sg.id]
     assign_public_ip = false
   }
