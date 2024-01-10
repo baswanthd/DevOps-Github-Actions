@@ -31,6 +31,7 @@ module "common_vpc" {
 
 module "ecs" {
   source = "./modules/ecs/"
-
+  subnets          = module.common_vpc.private_subnet_ids
   execution_role_arn = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+  
 }
