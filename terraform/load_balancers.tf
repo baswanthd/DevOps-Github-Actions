@@ -43,7 +43,7 @@ resource "aws_lb_target_group" "contact-form-tg" {
 }
 
 resource "aws_lb_listener" "contact-form-front_end" {
-  load_balancer_arn = aws_lb.bas_app_lb.arn
+  load_balancer_arn = aws_lb.central-app-lb.arn
   port              = "8080"
   protocol          = "HTTP"
   #ssl_policy        = "ELBSecurityPolicy-2016-08"
