@@ -32,5 +32,5 @@ module "common_vpc" {
 module "ecs" {
   source = "./modules/ecs/"
 
-  cluster  = var.cluster_id
+  execution_role_arn = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
 }
