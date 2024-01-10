@@ -1,10 +1,10 @@
-variable "cluster_id" {
-  default = aws_ecs_cluster.central-cluster.id
-}
-
-# variable "execution_role_arn" {
-#   default = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+# variable "cluster_id" {
+#   default = aws_ecs_cluster.central-cluster.id
 # }
+
+variable "execution_role_arn" {
+  default = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+}
 
 # variable "task_definition_arn" {
 #   default = aws_ecs_task_definition.bmi-service.arn

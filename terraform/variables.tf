@@ -22,6 +22,6 @@ variable "availability_zones" {
   default = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
 }
 
-variable "cluster_id" {
-  default = aws_ecs_cluster.central-cluster.id
-}
+# variable "cluster_id" {
+#   default = aws_ecs_cluster.central-cluster.id
+# }
