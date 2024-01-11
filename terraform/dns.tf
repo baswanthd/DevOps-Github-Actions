@@ -14,7 +14,7 @@ resource "aws_route53_record" "click-record" {
   }
 }
 
-resource "aws_route53_record" "click-record" {
+resource "aws_route53_record" "contact-record" {
   zone_id = data.aws_route53_zone.primary.zone_id
   name    = "contacts.test.baswanth-tech.de"
   type    = "A"
