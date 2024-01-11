@@ -15,7 +15,7 @@ resource "aws_lb" "central-app-lb" {
 
 resource "aws_lb_target_group" "central-app-tg" {
   name        = "central-app-tg"
-  port        = 80
+  port        = "8000"
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = module.common_vpc.vpc_id
@@ -36,7 +36,7 @@ resource "aws_lb_listener" "central-app-listner" {
 
 resource "aws_lb_target_group" "contact-form-tg" {
   name        = "contact-form-tg"
-  port        = 8080
+  port        = "8080"
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = module.common_vpc.vpc_id
