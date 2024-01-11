@@ -4,7 +4,8 @@
 
 data "aws_route53_zone" "primary" {
   name         = "test.baswanth-tech.de"
-  private_zone = false
+  zone_id = "Z03704902NJW3IC1VEZPZ"
+  #private_zone = false
 }
 
 resource "aws_route53_record" "click-record" {
