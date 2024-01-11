@@ -51,4 +51,4 @@ resource "aws_lb" "central-app-lb" {
   #   target_group_arn = aws_lb_target_group.contact-form-tg.arn
   # }
 
-}
+#}
