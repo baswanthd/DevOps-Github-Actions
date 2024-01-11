@@ -52,3 +52,19 @@ resource "aws_lb_listener" "contact-form-front_end" {
   }
 
 }
+
+resource "aws_lb_listener_rule" "contacts" {
+  listener_arn = aws_lb_listener.contact-form-front_end.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.contact-form-tg.arn
+  }
+
+  condition {
+    host_header {
+      values = ["contacts.test.baswanth-tech.de"]
+    }
+  }
+}
