@@ -23,7 +23,7 @@ resource "aws_ecs_task_definition" "bmi-service" {
 }
 
 resource "aws_ecs_task_definition" "contact-form-tf" {
-  family = "contact-form-tf"
+  family                   = "contact-form-tf"
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
   cpu                      = 256

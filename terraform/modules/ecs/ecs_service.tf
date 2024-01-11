@@ -10,7 +10,7 @@ resource "aws_ecs_service" "bmi-service" {
 
   network_configuration {
     subnets          = var.subnets
-    security_groups  =  [var.fargate_sg]#[aws_security_group.fargate-sg.id]
+    security_groups  = [var.fargate_sg] #[aws_security_group.fargate-sg.id]
     assign_public_ip = false
   }
 
@@ -28,12 +28,12 @@ resource "aws_ecs_service" "contact-form" {
   desired_count   = 1
   launch_type     = "FARGATE"
 
-network_configuration {
-  subnets = var.subnets
-  security_groups = [var.fargate_sg]
-  assign_public_ip = false
- }
- load_balancer {
+  network_configuration {
+    subnets          = var.subnets
+    security_groups  = [var.fargate_sg]
+    assign_public_ip = false
+  }
+  load_balancer {
     target_group_arn = var.contact_form_tg
     container_name   = "contact-form"
     container_port   = 8080
