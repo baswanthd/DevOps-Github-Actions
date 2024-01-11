@@ -3,7 +3,7 @@
 # }
 
 data "aws_route53_zone" "primary" {
-  name         = "test.baswanth-tech.de"
+  #name         = "test.baswanth-tech.de"
   zone_id = "Z03704902NJW3IC1VEZPZ"
   #private_zone = false
 }
