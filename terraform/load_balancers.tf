@@ -31,7 +31,7 @@ resource "aws_lb" "central-app-lb" {
   #   type             = "forward"
   #   target_group_arn = aws_lb_target_group.central-app-tg.arn
   # }
-}
+#}
 
 # resource "aws_lb_target_group" "contact-form-tg" {
 #   name        = "contact-form-tg"
