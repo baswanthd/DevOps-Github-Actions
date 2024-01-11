@@ -19,11 +19,11 @@ resource "aws_ecs_service" "bmi-service" {
   #   field = "cpu"
   # }
 
-  load_balancer {
-    target_group_arn = var.lb_target_group
-    container_name   = "bmi"
-    container_port   = 8000
-  }
+  # load_balancer {
+  #   target_group_arn = var.lb_target_group
+  #   container_name   = "bmi"
+  #   container_port   = 8000
+  # }
 }
 # placement_constraints {
 #   type       = "memberOf"
