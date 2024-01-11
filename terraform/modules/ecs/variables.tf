@@ -8,7 +8,7 @@ variable "subnets" {}
 
 variable "fargate_sg" {}
 
-variable "lb_target_group" {}
+#variable "lb_target_group" {}
 
 #variable "lb_listner" {}
 
