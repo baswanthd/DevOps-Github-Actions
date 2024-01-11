@@ -11,7 +11,7 @@ resource "aws_route53_record" "click-record" {
   zone_id = data.aws_route53_zone.primary.zone_id
   name    = "bmi.test.baswanth-tech.de"
   type    = "A"
-  ttl     = 10
+  #ttl     = 10
   #records = data.dns_a_record_set.lb_ips.addrs
 
     alias {
