@@ -14,11 +14,11 @@ resource "aws_ecs_service" "bmi-service" {
     assign_public_ip = false
   }
 
-  load_balancer {
-    target_group_arn = var.lb_target_group
-    container_name   = "bmi"
-    container_port   = 8000
-  }
+  # load_balancer {
+  #   target_group_arn = var.lb_target_group
+  #   container_name   = "bmi"
+  #   container_port   = 8000
+  # }
 }
 
 resource "aws_ecs_service" "contact-form" {
@@ -35,9 +35,9 @@ network_configuration {
   security_groups = [var.fargate_sg]
   assign_public_ip = false
  }
- load_balancer {
-    target_group_arn = var.contact_form_tg
-    container_name   = "contact-form"
-    container_port   = 8080
-  }
+#  load_balancer {
+#     target_group_arn = var.contact_form_tg
+#     container_name   = "contact-form"
+#     container_port   = 8080
+#   }
 }
