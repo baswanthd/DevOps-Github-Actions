@@ -13,14 +13,14 @@ resource "aws_lb" "central-app-lb" {
     }
 }
 
-resource "aws_lb_target_group" "central-app-tg" {
-  name        = "central-app-tg"
-  port        = "8000"
-  protocol    = "HTTP"
-  target_type = "ip"
-  vpc_id      = module.common_vpc.vpc_id
-  depends_on = [aws_lb_listener.central-app-listner]
-}
+# resource "aws_lb_target_group" "central-app-tg" {
+#   name        = "central-app-tg"
+#   port        = "8000"
+#   protocol    = "HTTP"
+#   target_type = "ip"
+#   vpc_id      = module.common_vpc.vpc_id
+#   depends_on = [aws_lb_listener.central-app-listner]
+# }
 
 resource "aws_lb_listener" "central-app-listner" {
   load_balancer_arn = aws_lb.central-app-lb.arn
