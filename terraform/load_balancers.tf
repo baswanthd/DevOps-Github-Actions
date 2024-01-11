@@ -59,7 +59,7 @@ resource "aws_lb_listener_rule" "contacts" {
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.contact-form-tg.arn
+    target_group_arn = aws_lb_target_group.central-app-tg.arn
   }
 
   condition {
