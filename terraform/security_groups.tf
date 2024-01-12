@@ -9,7 +9,6 @@ resource "aws_security_group" "allow_everything" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"] #["176.198.200.45/32"]
-    #ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
 
   egress {
@@ -17,7 +16,6 @@ resource "aws_security_group" "allow_everything" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-    #ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = {
