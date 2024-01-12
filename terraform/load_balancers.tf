@@ -41,25 +41,25 @@ resource "aws_lb_target_group" "contact-form-tg" {
   vpc_id      = module.common_vpc.vpc_id
 }
 
-resource "aws_lb_listener" "contact-form-front_end" {
-  load_balancer_arn = aws_lb.central-app-lb.arn
-  port              = "8080"
-  protocol          = "HTTP"
+# resource "aws_lb_listener" "contact-form-front_end" {
+#   load_balancer_arn = aws_lb.central-app-lb.arn
+#   port              = "8080"
+#   protocol          = "HTTP"
 
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.contact-form-tg.arn
-  }
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.contact-form-tg.arn
+#   }
 
-}
+# }
 
 resource "aws_lb_listener_rule" "contacts" {
-  listener_arn = aws_lb_listener.contact-form-front_end.arn
+  listener_arn = aws_lb_listener.central-app-listner.arn
   priority     = 100
 
   action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.central-app-tg.arn
+    target_group_arn = aws_lb_target_group.contact-form-tg.arn
   }
 
   condition {
