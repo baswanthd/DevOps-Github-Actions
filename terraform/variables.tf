@@ -27,7 +27,7 @@ variable "dns_name_contacts" {
   default     = "contacts.test.baswanth-tech.de"
 }
 
-variable "execution_role_arn" {
-  description = ""
-  default     = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
-}
+# variable "execution_role_arn" {
+#   description = ""
+#   default     = "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
+# }
