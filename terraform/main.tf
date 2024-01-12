@@ -41,6 +41,8 @@ module "ecs" {
 
 data "aws_caller_identity" "current" {}
 
-output "account_id" {
-  value = data.aws_caller_identity.current.account_id
+output "execution_role_id" {
+  value = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/ecsTaskExecutionRole"
 }
+
+# "arn:aws:iam::124937358799:role/ecsTaskExecutionRole"
