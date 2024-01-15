@@ -16,6 +16,5 @@ resource "aws_ecs_cluster" "central-cluster" {
 
 resource "aws_cloudwatch_log_group" "cloud-watch-lg" {
   name = "cloud-watch-lg"
+  retention_in_days = 3
 }
-
-  

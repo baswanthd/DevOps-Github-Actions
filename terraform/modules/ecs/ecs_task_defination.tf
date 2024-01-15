@@ -55,7 +55,7 @@ resource "aws_ecs_task_definition" "contact-form-tf" {
         logDriver = "awslogs"
         options = {
          # awslogs-create-group  = true
-          awslogs-group         = "cloud-watch-lg" #aws_cloudwatch_log_group.cloud-watch-lg.name
+          awslogs-group         = aws_cloudwatch_log_group.cloud-watch-lg.name
           awslogs-region        = var.region
           awslogs-stream-prefix = "awslogs-cloud-watch-cf"
         }
