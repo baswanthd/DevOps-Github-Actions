@@ -13,22 +13,22 @@ resource "aws_ecs_task_definition" "bmi-service" {
       memory    = 512
       essential = true
       portMappings = [
-       {
+        {
           containerPort = 8000
           hostPort      = 8000
         }
       ]
-                "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-create-group": "true",
-                    "awslogs-group": "awslogs-wordpress",
-                    "awslogs-region": "eu-central-1",
-                    "awslogs-stream-prefix": "awslogs-cloud-watch"
-                }
-            }
-          }
-    ])
+      logConfiguration = {
+        logDriver = "awslogs"
+        options = {
+          awslogs-create-group  = "true"
+          awslogs-group         = "awslogs-bmi"
+          awslogs-region        = var.region
+          awslogs-stream-prefix = "awslogs-cloud-watch"
+        }
+      }
+    }
+  ])
 }
 
 resource "aws_ecs_task_definition" "contact-form-tf" {

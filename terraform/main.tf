@@ -35,8 +35,9 @@ module "ecs" {
   source = "./modules/ecs/"
 
   subnets            = module.common_vpc.private_subnet_ids
-  execution_role_arn = join( "", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
+  execution_role_arn = join("", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
   fargate_sg         = aws_security_group.fargate-sg.id
   lb_target_group    = aws_lb_target_group.central-app-tg.arn
   contact_form_tg    = aws_lb_target_group.contact-form-tg.arn
+  region             = var.region
 }

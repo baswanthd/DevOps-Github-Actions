@@ -12,6 +12,8 @@ variable "lb_target_group" {}
 
 variable "contact_form_tg" {}
 
+variable "region" {}
+
 #variable "lb_listner" {}
 
 # variable "task_definition_arn" {

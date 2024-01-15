@@ -33,5 +33,5 @@ output "execution_role_id" {
 }
 
 output "execution_role_id_join" {
-  value = join( "", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
+  value = join("", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
 }
