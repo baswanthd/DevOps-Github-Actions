@@ -21,8 +21,8 @@ resource "aws_ecs_task_definition" "bmi-service" {
       logConfiguration = {
         logDriver = "awslogs"
         options = {
-          awslogs-create-group  = "true"
-          awslogs-group         = "awslogs-bmi"
+          awslogs-create-group  = false
+          awslogs-group         = "cloud-watch-lg"
           awslogs-region        = var.region
           awslogs-stream-prefix = "awslogs-cloud-watch"
         }
