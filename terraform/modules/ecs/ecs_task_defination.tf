@@ -24,7 +24,7 @@ resource "aws_ecs_task_definition" "bmi-service" {
          # awslogs-create-group  = true
           awslogs-group         = "cloud-watch-lg" #aws_cloudwatch_log_group.cloud-watch-lg.name
           awslogs-region        = var.region
-          awslogs-stream-prefix = "awslogs-cloud-watch"
+          awslogs-stream-prefix = "awslogs-cloud-watch-bmi"
         }
       }
     }
@@ -51,6 +51,15 @@ resource "aws_ecs_task_definition" "contact-form-tf" {
           hostPort      = 8080
         }
       ]
+            logConfiguration = {
+        logDriver = "awslogs"
+        options = {
+         # awslogs-create-group  = true
+          awslogs-group         = "cloud-watch-lg" #aws_cloudwatch_log_group.cloud-watch-lg.name
+          awslogs-region        = var.region
+          awslogs-stream-prefix = "awslogs-cloud-watch-cf"
+        }
+      }
     }
   ])
 }
