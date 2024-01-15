@@ -21,6 +21,8 @@ provider "aws" {
   region = "eu-central-1"
 }
 
+data "aws_caller_identity" "current" {}
+
 module "common_vpc" {
   source = "./modules/vpc/"
 
@@ -37,14 +39,4 @@ module "ecs" {
   fargate_sg         = aws_security_group.fargate-sg.id
   lb_target_group    = aws_lb_target_group.central-app-tg.arn
   contact_form_tg    = aws_lb_target_group.contact-form-tg.arn
-}
-
-data "aws_caller_identity" "current" {}
-
-output "execution_role_id" {
-  value = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/ecsTaskExecutionRole"
-}
-
-output "execution_role_id_join" {
-  value = join( "", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
 }

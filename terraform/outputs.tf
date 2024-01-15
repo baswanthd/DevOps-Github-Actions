@@ -27,3 +27,11 @@ output "cluster_id" {
   #value = "${aws_vpc.central_vpc.id}"
   value = module.ecs.cluster_id
 }
+
+output "execution_role_id" {
+  value = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/ecsTaskExecutionRole"
+}
+
+output "execution_role_id_join" {
+  value = join( "", ["arn:aws:iam::", data.aws_caller_identity.current.account_id, ":role/ecsTaskExecutionRole"])
+}
